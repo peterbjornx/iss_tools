@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="InterView" type="InterView"/>
+  <xs:complexType name="CpuProduct">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Comments"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="id"/>
+    <xs:attribute type="xs:string" name="creator"/>
+    <xs:attribute type="xs:date" name="updateDate"/>
+    <xs:attribute type="xs:string" name="name"/>
+    <xs:attribute type="xs:string" name="shortName"/>
+    <xs:attribute type="xs:string" name="step"/>
+    <xs:attribute type="xs:string" name="siliconStep"/>
+    <xs:attribute type="xs:string" name="chapDllName"/>
+    <xs:attribute type="xs:string" name="chapClassName"/>
+    <xs:attribute type="xs:string" name="dfxConfigurationFile"/>
+    <xs:attribute type="xs:string" name="dfxDllName"/>
+    <xs:attribute type="xs:string" name="dfxClassName"/>
+    <xs:attribute type="xs:string" name="version"/>
+    <xs:attribute type="xs:string" name="dalVersion"/>
+    <xs:attribute type="xs:string" name="godlatDllName"/>
+    <xs:attribute type="xs:string" name="godlatClassName"/>
+    <xs:attribute type="xs:string" name="godlatMetadataFile"/>
+    <xs:attribute type="xs:string" name="ctsDllName"/>
+    <xs:attribute type="xs:string" name="ctsClassName"/>
+    <xs:attribute type="xs:string" name="ctsMetadataFile"/>
+    <xs:attribute type="xs:string" name="oaDllName"/>
+    <xs:attribute type="xs:string" name="oaClassName"/>
+    <xs:attribute type="xs:string" name="oaConfigurationFile"/>
+    <xs:attribute type="xs:string" name="numOfOaCECs"/>
+    <xs:attribute type="xs:string" name="numOfOaCounters"/>
+    <xs:attribute type="xs:string" name="lkmConfigurationFile"/>
+    <xs:attribute type="xs:string" name="lastUpdateDate"/>
+    <xs:attribute type="xs:string" name="supportedFamilies"/>
+  </xs:complexType>
+  <xs:complexType name="SignalFile">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="id" use="optional"/>
+        <xs:attribute type="xs:string" name="creator" use="optional"/>
+        <xs:attribute type="xs:date" name="updateDate" use="optional"/>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="checksum" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="EventFolder">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Description"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="id" use="optional"/>
+    <xs:attribute type="xs:string" name="creator" use="optional"/>
+    <xs:attribute type="xs:date" name="updateDate" use="optional"/>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+    <xs:attribute type="xs:int" name="parentFolderId" use="optional"/>
+    <xs:attribute type="xs:int" name="orderInParent" use="optional"/>
+    <xs:attribute type="xs:string" name="path" use="optional"/>
+    <xs:attribute type="xs:string" name="readOnly" use="optional"/>
+    <xs:attribute type="xs:string" name="family" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Event">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Description"/>
+      <xs:element type="xs:string" name="Comments"/>
+      <xs:element type="xs:string" name="EArchSpecSet"/>
+      <xs:element type="xs:string" name="EArchSpecDomain"/>
+      <xs:element type="xs:string" name="EArchSpecCoverageSource"/>
+      <xs:element type="xs:string" name="EArchSpecConstraint"/>
+    </xs:sequence>
+    <xs:attribute type="xs:int" name="id" use="optional"/>
+    <xs:attribute type="xs:string" name="creator" use="optional"/>
+    <xs:attribute type="xs:date" name="updateDate" use="optional"/>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+    <xs:attribute type="xs:string" name="eventType" use="optional"/>
+    <xs:attribute type="xs:int" name="originalFolderId" use="optional"/>
+    <xs:attribute type="xs:string" name="originalProject" use="optional"/>
+    <xs:attribute type="xs:string" name="originalStep" use="optional"/>
+    <xs:attribute type="xs:int" name="parentFolderId" use="optional"/>
+    <xs:attribute type="xs:string" name="orderInParent" use="optional"/>
+    <xs:attribute type="xs:string" name="quickcovSourceId" use="optional"/>
+    <xs:attribute type="xs:string" name="MacroEventSourceId" use="optional"/>
+    <xs:attribute type="xs:string" name="expression" use="optional"/>
+    <xs:attribute type="xs:string" name="nonTraceable" use="optional"/>
+    <xs:attribute type="xs:string" name="valid" use="optional"/>
+    <xs:attribute type="xs:string" name="placeholder" use="optional"/>
+    <xs:attribute type="xs:string" name="enabled" use="optional"/>
+    <xs:attribute type="xs:string" name="readOnly" use="optional"/>
+    <xs:attribute type="xs:string" name="verifiedInEmulation" use="optional"/>
+    <xs:attribute type="xs:string" name="production" use="optional"/>
+    <xs:attribute type="xs:string" name="error" use="optional"/>
+    <xs:attribute type="xs:string" name="godlatMaskMatchOverride" use="optional"/>
+    <xs:attribute type="xs:string" name="parentGodlatPacketId" use="optional"/>
+    <xs:attribute type="xs:string" name="headerArm" use="optional"/>
+    <xs:attribute type="xs:string" name="maskMatchIndex" use="optional"/>
+    <xs:attribute type="xs:string" name="makeClassified" use="optional"/>
+    <xs:attribute type="xs:string" name="counterMode" use="optional"/>
+    <xs:attribute type="xs:string" name="insightCondition" use="optional"/>
+    <xs:attribute type="xs:string" name="version" use="optional"/>
+    <xs:attribute type="xs:string" name="clockCounter" use="optional"/>
+    <xs:attribute type="xs:string" name="module" use="optional"/>
+    <xs:attribute type="xs:string" name="path" use="optional"/>
+    <xs:attribute type="xs:string" name="group" use="optional"/>
+    <xs:attribute type="xs:string" name="tag" use="optional"/>
+    <xs:attribute type="xs:string" name="pmonArea" use="optional"/>
+    <xs:attribute type="xs:string" name="pmonCode" use="optional"/>
+    <xs:attribute type="xs:string" name="pmonSelectedSubEvents" use="optional"/>
+    <xs:attribute type="xs:string" name="eventOrigin" use="optional"/>
+    <xs:attribute type="xs:string" name="destination" use="optional"/>
+    <xs:attribute type="xs:string" name="applicability" use="optional"/>
+    <xs:attribute type="xs:string" name="priority" use="optional"/>
+    <xs:attribute type="xs:string" name="templateId" use="optional"/>
+    <xs:attribute type="xs:string" name="templateDomain" use="optional"/>
+    <xs:attribute type="xs:string" name="templateType" use="optional"/>
+    <xs:attribute type="xs:string" name="templateCluster" use="optional"/>
+    <xs:attribute type="xs:string" name="templateSlice" use="optional"/>
+    <xs:attribute type="xs:string" name="templateClock" use="optional"/>
+    <xs:attribute type="xs:string" name="templateName" use="optional"/>
+    <xs:attribute type="xs:string" name="templateLocation" use="optional"/>
+    <xs:attribute type="xs:string" name="templateEnable" use="optional"/>
+    <xs:attribute type="xs:string" name="templateReset" use="optional"/>
+    <xs:attribute type="xs:string" name="scenarioName" use="optional"/>
+    <xs:attribute type="xs:string" name="eventGroup" use="optional"/>
+    <xs:attribute type="xs:string" name="internal" use="optional"/>
+    <xs:attribute type="xs:string" name="pmonMaskBit" use="optional"/>
+    <xs:attribute type="xs:string" name="compoundFunction" use="optional"/>
+    <xs:attribute type="xs:string" name="geppetoPmonIndex" use="optional"/>
+    <xs:attribute type="xs:string" name="isPerSliced" use="optional"/>
+    <xs:attribute type="xs:string" name="pmonFunctionExpression" use="optional"/>
+    <xs:attribute type="xs:string" name="MatrixMsrValue" use="optional"/>
+    <xs:attribute type="xs:string" name="pmonCluster" use="optional"/>
+    <xs:attribute type="xs:string" name="isComputedPmonFunction" use="optional"/>
+    <xs:attribute type="xs:string" name="normalization_method" use="optional"/>
+    <xs:attribute type="xs:string" name="unit" use="optional"/>
+    <xs:attribute type="xs:string" name="family" use="optional"/>
+    <xs:attribute type="xs:string" name="preSiInSync" use="optional"/>
+    <xs:attribute type="xs:string" name="securityColor" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="InterView">
+    <xs:sequence>
+      <xs:element type="CpuProduct" name="CpuProduct"/>
+      <xs:element type="SignalFile" name="SignalFile" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="EventFolder" name="EventFolder" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Event" name="Event" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

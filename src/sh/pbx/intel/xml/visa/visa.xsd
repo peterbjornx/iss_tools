@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="visa_signal_map" type="VisaSignalMap"/>
+  <xs:complexType name="OutputLane">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:byte" name="num" use="optional"/>
+        <xs:attribute type="xs:byte" name="output_lane_num" use="optional"/>
+        <xs:attribute type="xs:byte" name="xbar" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Clock">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="clk" use="optional"/>
+        <xs:attribute type="xs:byte" name="sel" use="optional"/>
+        <xs:attribute type="xs:byte" name="ss" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Mux">
+    <xs:sequence>
+      <xs:element type="Resource" name="resource" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="OutputLane" name="output_lane" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Clock" name="clock" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="mux_type" use="optional"/>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+    <xs:attribute type="xs:byte" name="num_lanes" use="optional"/>
+    <xs:attribute type="xs:byte" name="num_xbar_lanes" use="optional"/>
+    <xs:attribute type="xs:byte" name="patgen_type" use="optional"/>
+    <xs:attribute type="xs:byte" name="src_sync_clks" use="optional"/>
+    <xs:attribute type="xs:byte" name="lane_width" use="optional"/>
+    <xs:attribute type="xs:byte" name="stepdown_factor" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Resource">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="func" use="optional"/>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:byte" name="num" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="MuxPath">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="clk_sel" use="optional"/>
+        <xs:attribute type="xs:short" name="lane_sel" use="optional"/>
+        <xs:attribute type="xs:string" name="mux_name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Signal">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:byte" name="bit" use="optional"/>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="Group">
+    <xs:sequence>
+      <xs:element type="MuxPath" name="mux_path" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Signal" name="signal" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="clk" use="optional"/>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+    <xs:attribute type="xs:byte" name="security" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="Register">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="mux" use="optional"/>
+        <xs:attribute type="xs:string" name="offset" use="optional"/>
+        <xs:attribute type="xs:string" name="standard" use="optional"/>
+        <xs:attribute type="xs:byte" name="reg_num" use="optional"/>
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="RegisterSet">
+    <xs:sequence>
+      <xs:element type="Register" name="register" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name"/>
+  </xs:complexType>
+  <xs:complexType name="VisaSignalMap">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="xs:string" name="mux_tree"/>
+      <xs:element type="Mux" name="mux" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="Group" name="group"/>
+      <xs:element type="RegisterSet" name="register_set"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>
